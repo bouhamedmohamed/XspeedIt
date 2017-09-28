@@ -1,19 +1,23 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class XspeedltParser {
-    List productsList = new ArrayList ( );
+    public static final String SEPARATOR = "/";
+    StringBuilder productsList = new StringBuilder ( );
 
     public XspeedltParser(String products) {
-        if ( !products.isEmpty ( ) )
-            productsList.add ("1");
-
+        if ( !products.isEmpty ( ) ) {
+            for (int i = 0; i < products.length ( ); i++) {
+                productsList.append (String.valueOf (products.charAt (i)) + SEPARATOR);
+            }
+            deleteLastSeparator ( );
+        }
     }
 
-    public List getProducts() {
-        return Collections.unmodifiableList (productsList);
+    private void deleteLastSeparator() {
+        productsList.deleteCharAt (productsList.length ( ) - 1);
+    }
+
+    public String getProducts() {
+        return productsList.toString ( );
     }
 }

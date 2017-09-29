@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class XspeedltComputeTes {
+public class XspeedltComputeTest {
 
     private XspeedltCompute xspeedltCompute;
 
@@ -23,9 +23,18 @@ public class XspeedltComputeTes {
     }
 
     @Test
-
     public void should_return_same_list_when_one_element() {
         final List<String> oneProduct = Arrays.asList ("1");
-        Assert.assertEquals (oneProduct , xspeedltCompute.sortPorducts (oneProduct));
+        Assert.assertEquals (oneProduct, xspeedltCompute.sortPorducts (oneProduct));
+    }
+
+    @Test
+    public void should_return_sorted_list_when_many_elements() {
+        final List<String> oneProduct = Arrays.asList ("1", "3", "2", "4");
+        final List sortedProducts = xspeedltCompute.sortPorducts (oneProduct);
+        Assert.assertEquals ("4", sortedProducts.get (0));
+        Assert.assertEquals ("3", sortedProducts.get (1));
+        Assert.assertEquals ("2", sortedProducts.get (2));
+        Assert.assertEquals ("1", sortedProducts.get (3));
     }
 }

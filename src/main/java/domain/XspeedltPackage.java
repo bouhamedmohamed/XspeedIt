@@ -12,13 +12,14 @@ public class XspeedltPackage {
     }
 
     public void addProduct(int product) {
-        if ( getPackageCapacity ( ) >= product )
+        if ( hasEnoughCapacity (product) )
             products.add (product);
         else
             throw new IllegalArgumentException ( );
     }
 
-    private int getPackageCapacity() {
-        return MAX_WEIGHT - products.stream ( ).mapToInt (i -> i).sum ( );
+    public boolean hasEnoughCapacity(int product) {
+        final int currentWeight = products.stream ( ).mapToInt (i -> i).sum ( );
+        return currentWeight + product <= MAX_WEIGHT;
     }
 }

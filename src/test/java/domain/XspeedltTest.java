@@ -8,11 +8,12 @@ import java.util.List;
 public class XspeedltTest {
     @Test
     public void should_return_8_packages() {
-        XspeedltParser xspeedltParser = new XspeedltParser ("163841689525773");
+        XspeedltParser xspeedltParser = new XspeedltParser ("16384168952577332");
         XspeedltCompute xspeedltCompute = new XspeedltCompute (xspeedltParser.getProducts ( ));
         xspeedltCompute.packageProducts ( );
         final List<XspeedltPackage> packageProducts = xspeedltCompute.getPackageProducts ( );
         Assert.assertEquals (8, packageProducts.size ( ));
+
         printPackage (packageProducts);
     }
 

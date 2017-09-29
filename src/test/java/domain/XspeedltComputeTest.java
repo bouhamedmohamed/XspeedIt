@@ -19,19 +19,19 @@ public class XspeedltComputeTest {
 
     @Test
     public void should_return_empty_list_when_empty_list() {
-        Assert.assertEquals (Collections.EMPTY_LIST, xspeedltCompute.sortPorducts (Collections.EMPTY_LIST));
+        Assert.assertEquals (Collections.EMPTY_LIST, xspeedltCompute.sortProducts (Collections.EMPTY_LIST));
     }
 
     @Test
     public void should_return_same_list_when_one_element() {
         final List<String> oneProduct = Arrays.asList ("1");
-        Assert.assertEquals (oneProduct, xspeedltCompute.sortPorducts (oneProduct));
+        Assert.assertEquals (oneProduct, xspeedltCompute.sortProducts (oneProduct));
     }
 
     @Test
     public void should_return_sorted_list_when_many_elements() {
         final List<String> oneProduct = Arrays.asList ("1", "3", "2", "4");
-        final List sortedProducts = xspeedltCompute.sortPorducts (oneProduct);
+        final List sortedProducts = xspeedltCompute.sortProducts (oneProduct);
         Assert.assertEquals ("4", sortedProducts.get (0));
         Assert.assertEquals ("3", sortedProducts.get (1));
         Assert.assertEquals ("2", sortedProducts.get (2));

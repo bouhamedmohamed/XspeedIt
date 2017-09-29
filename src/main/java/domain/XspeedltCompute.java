@@ -18,15 +18,20 @@ class XspeedltCompute {
 
     public void packageProducts() {
         for (int productPosition = 0; productPosition < productsList.size ( ); productPosition++) {
-            if ( isPackaged (productPosition) ) {
+            if ( isProductWasPackaged (productPosition) ) {
                 XspeedltPackage xspeedltPackage = new XspeedltPackage ( );
-                xspeedltPackage.addProduct (Integer.parseInt (productsList.get (productPosition)));
-                packagingProduct (productPosition);
+                final int productToAdd = Integer.parseInt (productsList.get (productPosition));
+                addProductToPackage (productPosition, xspeedltPackage, productToAdd);
                 packageList.add (createPackage (xspeedltPackage));
             }
 
         }
 
+    }
+
+    private void addProductToPackage(int productPosition, XspeedltPackage xspeedltPackage, int product) {
+        xspeedltPackage.addProduct (product);
+        packagingProduct (productPosition);
     }
 
     public List getProducts() {
@@ -37,7 +42,7 @@ class XspeedltCompute {
         productsList.set (position, VISITED);
     }
 
-    private boolean isPackaged(int position) {
+    private boolean isProductWasPackaged(int position) {
         return !productsList.get (position).equals (VISITED);
     }
 
@@ -47,14 +52,13 @@ class XspeedltCompute {
 
     private XspeedltPackage createPackage(XspeedltPackage xspeedltPackage) {
 
-        for (int i =  0; i < productsList.size ( ); i++) {
+        for (int productPositionInList =  0; productPositionInList < productsList.size ( ); productPositionInList++) {
             if ( xspeedltPackage.isFull ( ) )
                 return xspeedltPackage;
 
-            int productToAdd = Integer.parseInt (productsList.get (i));
-            if ( xspeedltPackage.hasEnoughCapacity (productToAdd) && isPackaged (i) ) {
-                xspeedltPackage.addProduct (Integer.parseInt (productsList.get (i)));
-                packagingProduct (i);
+            int productToAdd = Integer.parseInt (productsList.get (productPositionInList));
+            if ( xspeedltPackage.hasEnoughCapacityFor (productToAdd) && isProductWasPackaged (productPositionInList) ) {
+                addProductToPackage (productPositionInList, xspeedltPackage, productToAdd);
             }
         }
         return xspeedltPackage;

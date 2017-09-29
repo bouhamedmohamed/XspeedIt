@@ -15,21 +15,21 @@ public class XspeedltComputeTest {
     @Test
     public void should_return_empty_list_when_empty_list() {
         xspeedltCompute = new XspeedltCompute (Collections.EMPTY_LIST);
-        Assert.assertEquals (Collections.EMPTY_LIST, xspeedltCompute.sortedProducts ());
+        Assert.assertEquals (Collections.EMPTY_LIST, xspeedltCompute.getProducts ());
     }
 
     @Test
     public void should_return_same_list_when_one_element() {
         final List<String> oneProduct = Arrays.asList ("1");
         xspeedltCompute = new XspeedltCompute (oneProduct);
-        Assert.assertEquals (oneProduct, xspeedltCompute.sortedProducts ());
+        Assert.assertEquals (oneProduct, xspeedltCompute.getProducts ());
     }
 
     @Test
     public void should_return_sorted_list_when_many_elements() {
         final List<String> oneProduct = Arrays.asList ("1", "3", "2", "4");
         xspeedltCompute = new XspeedltCompute (oneProduct);
-        final List sortedProducts = xspeedltCompute.sortedProducts ();
+        final List sortedProducts = xspeedltCompute.getProducts ();
         Assert.assertEquals ("4", sortedProducts.get (0));
         Assert.assertEquals ("3", sortedProducts.get (1));
         Assert.assertEquals ("2", sortedProducts.get (2));
@@ -41,7 +41,7 @@ public class XspeedltComputeTest {
         final List<String> oneProduct = Arrays.asList ("1", "3", "2", "4");
         xspeedltCompute = new XspeedltCompute (oneProduct);
         xspeedltCompute.packagingProduct (2);
-        final List sortedProductsUpdated = xspeedltCompute.sortedProducts ();
+        final List sortedProductsUpdated = xspeedltCompute.getProducts ();
         Assert.assertEquals ("4", sortedProductsUpdated.get (0));
         Assert.assertEquals ("3", sortedProductsUpdated.get (1));
         Assert.assertEquals ("-1", sortedProductsUpdated.get (2));

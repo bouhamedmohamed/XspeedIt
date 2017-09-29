@@ -11,25 +11,9 @@ public class XspeedltCompute {
     List<XspeedltPackage> packageList = new ArrayList<> ( );
 
     public XspeedltCompute(List<String> productsListElement) {
-        productsList = productsListElement;
+        productsList.addAll (productsListElement);
         Collections.sort (productsList, Comparator.comparingInt (Integer::parseInt));
         Collections.sort (productsList, Collections.reverseOrder ( ));
-    }
-
-    public List sortedProducts() {
-        return productsList;
-    }
-
-    public void packagingProduct(int position) {
-        productsList.set (position, VISITED);
-    }
-
-    public boolean isPackaged(int position) {
-        return productsList.get (position).equals (VISITED);
-    }
-
-    public List<XspeedltPackage> getPackageProducts() {
-        return packageList;
     }
 
     public void packageProducts() {
@@ -43,6 +27,22 @@ public class XspeedltCompute {
 
         }
 
+    }
+
+    public List getProducts() {
+        return productsList;
+    }
+
+    public void packagingProduct(int position) {
+        productsList.set (position, VISITED);
+    }
+
+    private boolean isPackaged(int position) {
+        return productsList.get (position).equals (VISITED);
+    }
+
+    public List<XspeedltPackage> getPackageProducts() {
+        return packageList;
     }
 
     private XspeedltPackage createPackage(XspeedltPackage xspeedltPackage) {

@@ -7,7 +7,7 @@ public class XspeedltPackage {
     public static final int MAX_WEIGHT = 10;
     List<Integer> products = new ArrayList ( );
 
-    public List getProductsInside() {
+    public List<Integer> getProductsInside() {
         return products;
     }
 

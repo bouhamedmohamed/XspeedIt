@@ -27,4 +27,6 @@ public class XspeedltPackage {
         final int currentWeight = products.stream ( ).mapToInt (i -> i).sum ( );
         return currentWeight == MAX_WEIGHT;
     }
+
+
 }

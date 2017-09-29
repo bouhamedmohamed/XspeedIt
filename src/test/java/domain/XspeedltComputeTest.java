@@ -54,4 +54,28 @@ public class XspeedltComputeTest {
          xspeedltCompute.packageProducts ();
         Assert.assertEquals (1, xspeedltCompute.getPackageProducts ().size ());
     }
+
+    @Test
+    public void should_return_two_package() {
+        final List<String> oneProduct = Arrays.asList ("9", "3", "2", "4");
+        xspeedltCompute = new XspeedltCompute (oneProduct);
+        xspeedltCompute.packageProducts ();
+        Assert.assertEquals (2, xspeedltCompute.getPackageProducts ().size ());
+    }
+
+    @Test
+    public void should_return_three_package() {
+        final List<String> oneProduct = Arrays.asList ("9", "3", "2", "6","1","8","1");
+        xspeedltCompute = new XspeedltCompute (oneProduct);
+        xspeedltCompute.packageProducts ();
+        Assert.assertEquals (3, xspeedltCompute.getPackageProducts ().size ());
+    }
+
+    @Test
+    public void should_return_three_with_other_products_package() {
+        final List<String> oneProduct = Arrays.asList ("9", "3", "2", "4","1","8","1","2");
+        xspeedltCompute = new XspeedltCompute (oneProduct);
+        xspeedltCompute.packageProducts ();
+        Assert.assertEquals (3, xspeedltCompute.getPackageProducts ().size ());
+    }
 }

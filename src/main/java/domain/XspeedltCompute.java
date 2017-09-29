@@ -36,8 +36,8 @@ public class XspeedltCompute {
         for (int productPosition = 0; productPosition < productsList.size ( ); productPosition++) {
             if ( !isPackaged (productPosition) ) {
                 XspeedltPackage xspeedltPackage = new XspeedltPackage ( );
-                packagingProduct (productPosition);
                 xspeedltPackage.addProduct (Integer.parseInt (productsList.get (productPosition)));
+                packagingProduct (productPosition);
                 packageList.add (createPackage (xspeedltPackage));
             }
 
@@ -47,14 +47,14 @@ public class XspeedltCompute {
 
     private XspeedltPackage createPackage(XspeedltPackage xspeedltPackage) {
 
-        for (int i = productsList.size ( ) - 1; i >= 0; i--) {
+        for (int i =  0; i < productsList.size ( ); i++) {
             if ( xspeedltPackage.isFull ( ) )
                 return xspeedltPackage;
 
             int productToAdd = Integer.parseInt (productsList.get (i));
             if ( xspeedltPackage.hasEnoughCapacity (productToAdd) && !isPackaged (i) ) {
-                packagingProduct (i);
                 xspeedltPackage.addProduct (Integer.parseInt (productsList.get (i)));
+                packagingProduct (i);
             }
         }
         return xspeedltPackage;

@@ -9,7 +9,5 @@ public class XspeedltCompute {
         Collections.sort (productsList, Comparator.comparingInt (Integer::parseInt));
         Collections.sort (productsList, Collections.reverseOrder ( ));
         return productsList;
-
-
     }
 }

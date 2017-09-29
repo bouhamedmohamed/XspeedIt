@@ -3,8 +3,10 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XspeedltPackage {
-    public static final int MAX_WEIGHT = 10;
+class XspeedltPackage {
+    private static final int MAX_WEIGHT = 10;
+    @SuppressWarnings("unchecked")
+    private final
     List<Integer> products = new ArrayList ( );
 
     public List<Integer> getProductsInside() {

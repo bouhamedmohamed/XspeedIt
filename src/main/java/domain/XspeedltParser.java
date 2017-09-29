@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class XspeedltParser {
-    public static final String SEPARATOR = "/";
-    List<String> productsList = new ArrayList<> ( );
+class XspeedltParser {
+    private final List<String> productsList = new ArrayList<> ( );
 
     public XspeedltParser(String products) {
         if ( !products.isEmpty ( ) ) {

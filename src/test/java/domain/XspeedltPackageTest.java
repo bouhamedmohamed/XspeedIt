@@ -3,8 +3,6 @@ package domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.IllformedLocaleException;
-
 public class XspeedltPackageTest {
     @Test
     public void should_add_two_products_below_10_weight() {

@@ -14,13 +14,14 @@ public class XspeedltComputeTest {
 
     @Test
     public void should_return_empty_list_when_empty_list() {
+        //noinspection unchecked
         xspeedltCompute = new XspeedltCompute (Collections.EMPTY_LIST);
         Assert.assertEquals (Collections.EMPTY_LIST, xspeedltCompute.getProducts ());
     }
 
     @Test
     public void should_return_same_list_when_one_element() {
-        final List<String> oneProduct = Arrays.asList ("1");
+        final List<String> oneProduct = Collections.singletonList ("1");
         xspeedltCompute = new XspeedltCompute (oneProduct);
         Assert.assertEquals (oneProduct, xspeedltCompute.getProducts ());
     }
